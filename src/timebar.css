@@ -1,8 +1,13 @@
 :root {
   --scrollbar-height: 10%;
-  --scrollbar-width: 0.25rem;
+  --scrollbar-width: 7px;
+  --scrollbar-padding: 2px;
   --scrollbar-offset-top: 0px;
   --scrollbar-offset-bottom: 0px;
+}
+
+body.timebar-dragging * {
+  cursor: default !important;
 }
 
 .scroll-wrapper {
@@ -23,22 +28,21 @@
 }
 
 @keyframes scroll-animation {
-  0%   { top: calc(var(--scrollbar-width) + var(--scrollbar-offset-top)); }
-  100% { top: calc(100% - var(--scrollbar-height) - var(--scrollbar-width) - var(--scrollbar-offset-bottom)); }
+  0%   { top: calc(var(--scrollbar-offset-top)); }
+  100% { top: calc(100% - var(--scrollbar-height) - var(--scrollbar-offset-bottom)); }
 }
 
 .scroll-content::-webkit-scrollbar {
   display: none;
 }
 
-.scroll-content::after {
-  content: '';
+.scroll-bar {
   position: absolute;
-  right: var(--scrollbar-width);
+  right: var(--scrollbar-padding);
   width: var(--scrollbar-width);
   height: var(--scrollbar-height);
   background: rgba(0, 0, 0, 0.4);
-  border-radius: 0.125rem;
+  border-radius: var(--scrollbar-width);
   
   animation-duration: 1ms; /* Firefox requires this to apply the animation */
   animation-timeline: --maskTimeline;
