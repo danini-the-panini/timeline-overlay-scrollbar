@@ -5,14 +5,10 @@ import './buttons'
 
 let sc = document.querySelector('.scroll-content') as HTMLElement
 let sb = document.querySelector('.scroll-bar') as HTMLElement
-// let thead = document.querySelector('thead')
-// sc.style.setProperty('--scrollbar-offset-top', `${thead.clientHeight}px`)
 
 function update() {
-  console.log('updating', sc.clientHeight, sc.scrollHeight)
-  let ratio = sc.clientHeight / sc.scrollHeight
-  let percent = (ratio * 100).toString() + '%'
-  sc.style.setProperty('--scrollbar-height', percent)
+  let height = Math.max(sc.clientHeight ** 2 / sc.scrollHeight, 32)
+  sc.style.setProperty('--scrollbar-height', `${height}px`)
 }
 requestAnimationFrame(update)
 

@@ -22,9 +22,9 @@ body.timebar-dragging * {
   overflow-y: auto;
   height: 100%;
   
-  scroll-timeline: --maskTimeline y;
+  scroll-timeline: --scroll-timeline y;
   /* Firefox supports the older "vertical" syntax */
-  scroll-timeline: --maskTimeline vertical;
+  scroll-timeline: --scroll-timeline vertical;
 }
 
 @keyframes scroll-animation {
@@ -45,7 +45,7 @@ body.timebar-dragging * {
   border-radius: var(--scrollbar-width);
   
   animation-duration: 1ms; /* Firefox requires this to apply the animation */
-  animation-timeline: --maskTimeline;
+  animation-timeline: --scroll-timeline;
   animation-name: scroll-animation;
   animation-timing-function: linear;
   z-index: 1;
