@@ -1,4 +1,7 @@
 import './style.css'
+import './timebar.css'
+
+import './buttons'
 
 let sw = document.querySelector('.scroll-wrapper') as HTMLElement
 let sc = document.querySelector('.scroll-content') as HTMLElement
@@ -11,10 +14,20 @@ function update() {
   let percent = (ratio * 100).toString() + '%'
   sc.style.setProperty('--scrollbar-height', percent)
 }
-update()
+requestAnimationFrame(update)
 
-let resizeObserver = new ResizeObserver((entries) => {
-  update()
+let resizeObserver = new ResizeObserver(() => {
+  requestAnimationFrame(update)
 })
 
 resizeObserver.observe(sc)
+
+let mutationObserver = new MutationObserver(() => {
+  requestAnimationFrame(update)
+})
+
+mutationObserver.observe(sc, {
+  childList: true,
+  subtree: true,
+  characterData: true,
+})
