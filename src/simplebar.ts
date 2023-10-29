@@ -1,5 +1,5 @@
-import './style.css';
+import './style.css'
 import './buttons'
 
-import 'simplebar';
-import 'simplebar/dist/simplebar.css';
+import 'simplebar'
+import 'simplebar/dist/simplebar.css'
