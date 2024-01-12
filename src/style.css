@@ -76,6 +76,8 @@ body {
 
 article {
   padding: 0 1rem;
+  width: 500px;
+  min-width: 100%;
 }
 
 p {
